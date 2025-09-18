@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple SPA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    nav {
+      margin-bottom: 20px;
+    }
+    nav button {
+      margin-right: 10px;
+      padding: 10px 15px;
+      border: none;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    nav button:hover {
+      background: #0056b3;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <button onclick="navigate('home')">Home</button>
+    <button onclick="navigate('about')">About</button>
+    <button onclick="navigate('contact')">Contact</button>
+  </nav>
+
+  <section id="home" class="active">
+    <h1>Welcome to the Home Page</h1>
+    <p>This is the home section of the SPA.</p>
+  </section>
+
+  <section id="about">
+    <h1>About Us</h1>
+    <p>Here's some information about our single page application.</p>
+  </section>
+
+  <section id="contact">
+    <h1>Contact</h1>
+    <p>You can reach us at <a href="mailto:contact@example.com">contact@example.com</a>.</p>
+  </section>
+
+  <script>
+    function navigate(page) {
+      // Hide all sections
+      document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show the selected section
+      document.getElementById(page).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
